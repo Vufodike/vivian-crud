@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "traineeUser",
+    "password": "traineePassword",
+    "database": "vee_crud",
+    "host": "143.110.208.231",
+    "dialect": "postgres"
   }
 }
