@@ -1,0 +1,43 @@
+<%- include('./partials/header') %>  
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <% if(users.length > 0){ %>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                       <% users.forEach(function(user){ %>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><%= user.firstname %></td>
+                            <td><%= user.lastname %></td>
+                            <td><%= user.age %></td>
+                            <td><%= user.department %></td>
+                            <td><%= user.role %></td>
+                            <td><%= user.status %></td>
+                            <td><a href="/users/showedit/<%= user.id %>" type="button" class="btn btn-sm btn-primary">Edit User</a></td>
+                            <td><a href="/users/delete/<%= user.id %>" type="button" class="btn btn-sm btn-danger">Delete User</a></td>
+                        </tr>
+                       <%  }) %>
+                    </tbody>
+                </table>
+            <% }else{ %>
+                <div class="alert alert-warning" role="alert">
+                    Users Not Found. Please click  <a href="/users/create">here</a> to create a new user
+                 </div>
+            <% } %>
+        </div>
+    </div>
+
+<%- include('./partials/footer') %>

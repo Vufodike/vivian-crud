@@ -1,0 +1,52 @@
+<%- include('./partials/header') %>  
+ <div class="row justify-content-center">
+     <div class="col-10">
+        <form action="/users/updateuser/<%= user.id %>" method="POST">
+            
+            <div class="mb-3">
+              <label for="firstname" class="form-label">First Name</label>
+              <input type="text" name="firstname" value="<%= user.firstname %>" class="form-control" id="firstname">
+            </div>
+
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" name="lastname" value="<%= user.lastname %>" class="form-control" id="lastname">
+              </div>
+
+            <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" name="age" class="form-control" value="<%= user.age %>" id="age" aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-3">
+                <select class="form-select" name="role" aria-label="Default select example">
+                    <option selected>Select Role</option>
+                    <option value="PM" <%= "PM" === user.role ? 'selected' : '' %>>PM</option>
+                    <option value="QA" <%= "QA" === user.role ? 'selected' : '' %>>QA</option>
+                    <option value="DEV" <%= "DEV" === user.role ? 'selected' : '' %>>DEV</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <select class="form-select" name="department" aria-label="Default select example">
+                    <option selected>Select department</option>
+                    <option value="Engineering" <%= "Engineering" === user.department ? 'selected' : '' %> >Engineering</option>
+                    <option value="Management" <%= "Management" === user.department ? 'selected' : '' %> >Management</option>
+                    <option value="Development" <%= "Development" === user.department ? 'selected' : '' %> >Development</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <select class="form-select" name="status" aria-label="Default select example">
+                    <option selected>Select Status</option>
+                    <option value="Activate" <%= "Activate" === user.status ? 'selected' : '' %>>Activate</option>
+                     <option value="Pending" <%= "Pending" === user.sttaus ? 'selected' : '' %> >Pending</option>
+                    <option value="Cancel" <%= "Cancel" === user.status ? 'selected' : '' %>>Cancel</option>
+                </select>
+            </div>
+  
+            <button type="submit" class="btn btn-primary">Update User</button>
+          </form>
+     </div>
+ </div>
+<%- include('./partials/footer') %>
